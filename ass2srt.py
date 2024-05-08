@@ -1,5 +1,6 @@
 import os
 import pysubs2
+import chardet
 
 # Prompt the user to enter the directory path
 directory = input("Enter the directory path where the .ass files are located: ")
@@ -17,8 +18,12 @@ for ass_file in ass_files:
     # Generate the corresponding .srt filename
     srt_file = os.path.splitext(ass_file)[0] + '.srt'
 
+    # Detect the file encoding
+    raw_data = open(os.path.join(directory, ass_file), 'rb').read()
+    file_enc = chardet.detect(raw_data)['encoding']
+
     # Open the .ass file using pysubs2
-    subs = pysubs2.load(os.path.join(directory, ass_file), encoding='utf-8')
+    subs = pysubs2.load(os.path.join(directory, ass_file), encoding=file_enc)
 
     # Save the subtitles as .srt
     subs.save(os.path.join(directory, srt_file), encoding='utf-8')

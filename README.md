@@ -11,10 +11,10 @@ ass2srt is a Python script that allows you to convert `.ass` subtitle files to `
 ## Requirements
 
 - Python 3.x
-- `pysubs2` library
+- `pysubs2` `chardet` library
 
 ## Usage
 
 1. Clone this repository or download the `convert_ass_to_srt.py` script.
 2. Ensure that you have Python installed on your system.
-3. Install the required `pysubs2` library by running the following command: ``pip install pysubs2``
+3. Install the required `pysubs2` and `chardet` library by running the following command: ``pip install pysubs2 chardet``
